@@ -71,7 +71,11 @@ class ProductController extends Controller
      */
     public function edit($id)
     {
-        //
+        $product = Product::where("id", $id)->first();
+
+        return view("products.edit", [
+            "product" => $product
+        ]);
     }
 
     /**
@@ -83,7 +87,20 @@ class ProductController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $product = Product::where("id", $id)->first();
+
+        $product->name = $request->name;
+        $product->sku = $request->sku;
+        $product->inventory = $request->inventory;
+        $product->price = $request->price;
+        $product->save();
+
+        if (!empty($request->file('photo'))) {
+            $product->photo = $request->file('photo')->storeAs('product', str_replace('.', '', microtime(true)) . '.' . $request->file('photo')->extension());
+            $product->save();
+        }
+
+        return redirect()->route('products.index');
     }
 
     /**

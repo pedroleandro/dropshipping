@@ -53,7 +53,9 @@
 <script src="{{ asset('js/jquery.mask.js') }}"></script>
 
 <script>
-    $(".price").mask('R$ 000.000.000.000.000,00', {reverse: true, placeholder: "R$ 0,00"});
+    $(function () {
+        $(".price").mask('R$ 000.000.000.000.000,00', {reverse: true, placeholder: "R$ 0,00"});
+    });
 </script>
 
 </body>

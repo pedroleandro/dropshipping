@@ -45,7 +45,7 @@
                     <form action="" method="post" class="mt-3">
                         @csrf
                         @method("DELETE")
-                        <a href="" class="btn btn-info">Editar</a>
+                        <a href="{{ route("products.edit", ["product" => $product->id]) }}" class="btn btn-info">Editar</a>
                         <button type="submit" class="btn btn-danger">Excluir</button>
                     </form>
                 </article>
