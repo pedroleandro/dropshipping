@@ -3,6 +3,7 @@
 namespace App;
 
 use Illuminate\Database\Eloquent\Model;
+use Illuminate\Support\Facades\Storage;
 
 class Product extends Model
 {
@@ -13,6 +14,11 @@ class Product extends Model
         'price',
         'photo'
     ];
+
+    public function getPhotoUrlAttribute()
+    {
+        return Storage::url($this->photo);
+    }
 
     public function setPriceAttribute($value)
     {

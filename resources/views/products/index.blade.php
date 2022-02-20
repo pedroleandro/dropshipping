@@ -34,7 +34,7 @@
 
             @foreach($products as $product)
                 <article class="mb-5">
-                    <img align="right" src="{{ asset($product->photo) }}" alt="">
+                    <img align="right" src="{{ asset($product->photo_url) }}" alt="">
                     <h1>{{ $product->name }}</h1>
                     <h2>{{ $product->sku }}</h2>
                     <p>Estoque: {{ $product->inventory }} itens</p>

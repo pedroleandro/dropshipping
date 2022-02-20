@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Http\Requests\ProductRequest;
 use App\Product;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ProductController extends Controller
 {
@@ -42,8 +43,10 @@ class ProductController extends Controller
     {
         $newProduct = Product::create($request->all());
 
+        var_dump($request->file('photo'));
+
         if (!empty($request->file('photo'))) {
-            $newProduct->photo = $request->file('photo')->storeAs('product', str_replace('.', '', microtime(true)) . '.' . $request->file('photo')->extension());
+            $newProduct->photo = $request->file('photo')->storeAs('products/' . $newProduct->id, str_replace('.', '', microtime(true)) . '.' . $request->file('photo')->extension());
             $newProduct->save();
         }
 
@@ -94,7 +97,7 @@ class ProductController extends Controller
         $product->save();
 
         if (!empty($request->file('photo'))) {
-            $product->photo = $request->file('photo')->storeAs('product', str_replace('.', '', microtime(true)) . '.' . $request->file('photo')->extension());
+            $product->photo = $request->file('photo')->storeAs('product/' . $product->id, str_replace('.', '', microtime(true)) . '.' . $request->file('photo')->extension());
             $product->save();
         }
 
