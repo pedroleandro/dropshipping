@@ -42,7 +42,7 @@
                     <small>Criado em: {{ date('Y-m-d H:i:s', strtotime($product->created_at)) }} - Editado
                         em: {{ date('Y-m-d H:i:s', strtotime($product->updated_at)) }}</small>
 
-                    <form action="" method="post" class="mt-3">
+                    <form action="{{ route("products.destroy", ["product" => $product->id]) }}" method="post" class="mt-3">
                         @csrf
                         @method("DELETE")
                         <a href="{{ route("products.edit", ["product" => $product->id]) }}" class="btn btn-info">Editar</a>
