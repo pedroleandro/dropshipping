@@ -43,8 +43,6 @@ class ProductController extends Controller
     {
         $newProduct = Product::create($request->all());
 
-        var_dump($request->file('photo'));
-
         if (!empty($request->file('photo'))) {
             $newProduct->photo = $request->file('photo')->storeAs('products/' . $newProduct->id, str_replace('.', '', microtime(true)) . '.' . $request->file('photo')->extension());
             $newProduct->save();
@@ -68,7 +66,7 @@ class ProductController extends Controller
      * Show the form for editing the specified resource.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Contracts\Foundation\Application|\Illuminate\Contracts\View\Factory|\Illuminate\Http\Response|\Illuminate\View\View
      */
     public function edit($id)
     {
@@ -84,7 +82,7 @@ class ProductController extends Controller
      *
      * @param \Illuminate\Http\Request $request
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function update(Request $request, $id)
     {
@@ -108,7 +106,7 @@ class ProductController extends Controller
      * Remove the specified resource from storage.
      *
      * @param int $id
-     * @return \Illuminate\Http\Response
+     * @return \Illuminate\Http\RedirectResponse
      */
     public function destroy($id)
     {

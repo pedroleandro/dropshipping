@@ -2,6 +2,7 @@
 
 namespace App;
 
+use App\Support\Cropper;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Support\Facades\Storage;
 
@@ -17,7 +18,7 @@ class Product extends Model
 
     public function getPhotoUrlAttribute()
     {
-        return Storage::url($this->photo);
+        return Storage::url(Cropper::thumb($this->photo, 1366, 768));
     }
 
     public function setPriceAttribute($value)
