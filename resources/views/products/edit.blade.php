@@ -15,7 +15,7 @@
 
     <a href="{{ route("products.index") }}" class="btn btn-success mb-5">Lista de Produtos</a>
 
-    <form action="{{ route("products.update", ['product' => $product->id]) }}" method="post">
+    <form action="{{ route("products.update", ['product' => $product->id]) }}" method="post" enctype="multipart/form-data">
 
         @csrf
         @method("PUT")
