@@ -38,7 +38,7 @@
                     <h1>{{ $product->name }}</h1>
                     <h2>{{ $product->sku }}</h2>
                     <p>Estoque: {{ $product->inventory }} itens</p>
-                    <p>R$ {{ number_format($product->price, 2, ",", ".") }} reais</p>
+                    <p>R$ {{ $product->price }} reais</p>
                     <small>Criado em: {{ date('Y-m-d H:i:s', strtotime($product->created_at)) }} - Editado
                         em: {{ date('Y-m-d H:i:s', strtotime($product->updated_at)) }}</small>
 
