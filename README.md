@@ -7,6 +7,52 @@
 <a href="https://packagist.org/packages/laravel/framework"><img src="https://poser.pugx.org/laravel/framework/license.svg" alt="License"></a>
 </p>
 
+## Requisitos para executar o Laravel
+
+- PHP >= 7.2.5
+- BCMath PHP Extension
+- Ctype PHP Extension
+- Fileinfo PHP extension
+- JSON PHP Extension
+- Mbstring PHP Extension
+- OpenSSL PHP Extension
+- PDO PHP Extension
+- Tokenizer PHP Extension
+- XML PHP Extension
+
+## Executando o projeto
+
+###  Clone o projeto
+
+`git clone https://github.com/pedroleandro/dropshipping.git`
+
+###  .env
+
+Copie o arquivo o arquivo .env.example e renomeie para .env, após isso insira os valores das variáveis de ambiente para banco de dados
+
+- DB_CONNECTION=mysql
+- DB_HOST=127.0.0.1
+- DB_PORT=3306
+- DB_DATABASE=dropshipping
+- DB_USERNAME=
+- DB_PASSWORD=
+
+## Execute os comandos abaixo antes de executar a aplicação
+
+`composer install`
+
+`php artisan key:generate`
+
+`php artisan migrate`
+
+`php artisan storage:link`
+
+`php artisan artisan serve`
+
+## Routes
+
+`php artisan route:list`
+
 ## About Laravel
 
 Laravel is a web application framework with expressive, elegant syntax. We believe development must be an enjoyable and creative experience to be truly fulfilling. Laravel takes the pain out of development by easing common tasks used in many web projects, such as:
