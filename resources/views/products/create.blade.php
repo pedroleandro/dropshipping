@@ -21,22 +21,22 @@
 
         <div class="form-group">
             <label for="name">Nome do produto</label>
-            <input type="text" name="name" id="name" class="form-control" value="Marmita de frango">
+            <input type="text" name="name" id="name" class="form-control" value="{{ old("name") }}">
         </div>
 
         <div class="form-group">
             <label for="sku">SKU</label>
-            <input type="text" name="sku" id="sku" class="form-control" value="SKUFRANGO123">
+            <input type="text" name="sku" id="sku" class="form-control" value="{{ old("sku") }}">
         </div>
 
         <div class="form-group">
             <label for="inventory">Estoque</label>
-            <input type="number" name="inventory" id="inventory" class="form-control" value="10">
+            <input type="number" name="inventory" id="inventory" class="form-control" value="{{ old("inventory") }}">
         </div>
 
         <div class="form-group">
             <label for="price">Preço</label>
-            <input type="text" name="price" id="price" class="form-control price" value="5,50">
+            <input type="text" name="price" id="price" class="form-control price" value="{{ old("price") }}">
         </div>
 
         <div class="form-group">
@@ -49,13 +49,11 @@
     </form>
 </div>
 
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/jquery.mask.js') }}"></script>
 
 <script>
-    $(function () {
-        $(".price").mask('R$ 000.000.000.000.000,00', {reverse: true, placeholder: "R$ 0,00"});
-    });
+    $(".price").mask('R$ 000.000.000.000.000,00', {reverse: true, placeholder: "R$ 0,00"});
 </script>
 
 </body>

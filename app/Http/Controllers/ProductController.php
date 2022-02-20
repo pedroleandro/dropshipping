@@ -47,9 +47,7 @@ class ProductController extends Controller
             $newProduct->save();
         }
 
-        return redirect()->route('products.edit', [
-            'product' => $newProduct->id
-        ]);
+        return redirect()->route('products.index');
     }
 
     /**

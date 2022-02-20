@@ -49,13 +49,11 @@
     </form>
 </div>
 
-<script src="{{ asset('js/app.js') }}"></script>
+<script src="{{ asset('js/jquery.min.js') }}"></script>
 <script src="{{ asset('js/jquery.mask.js') }}"></script>
 
 <script>
-    $(function () {
-        $(".price").mask('R$ 000.000.000.000.000,00', {reverse: true, placeholder: "R$ 0,00"});
-    });
+    $(".price").mask('R$ 000.000.000.000.000,00', {reverse: true, placeholder: "R$ 0,00"});
 </script>
 </body>
 </html>
