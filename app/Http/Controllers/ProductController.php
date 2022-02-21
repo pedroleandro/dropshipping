@@ -84,7 +84,7 @@ class ProductController extends Controller
      * @param int $id
      * @return \Illuminate\Http\RedirectResponse
      */
-    public function update(Request $request, $id)
+    public function update(ProductRequest $request, $id)
     {
         $product = Product::where("id", $id)->first();
 
@@ -99,7 +99,9 @@ class ProductController extends Controller
             $product->save();
         }
 
-        return redirect()->route('products.index');
+        return redirect()->route('products.edit', [
+            "product" => $product->id
+        ]);
     }
 
     /**

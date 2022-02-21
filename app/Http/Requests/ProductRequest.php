@@ -32,4 +32,16 @@ class ProductRequest extends FormRequest
             'photo' => 'image',
         ];
     }
+
+    public function messages()
+    {
+        return [
+            "name.required" => "Por favor, informe um nome para o produto.",
+            "name.min" => "O nome deve ter pelo menos 3 caracteres",
+            "name.max" => "O nome deve ter pelo até 191 caracteres",
+            "sku.required" => "Por gentileza, insira o SKU do produto.",
+            "inventory.required" => "Informe o estoque desse produto.",
+            "price.required" => "Por favor, insira o preço para esse produto."
+        ];
+    }
 }
